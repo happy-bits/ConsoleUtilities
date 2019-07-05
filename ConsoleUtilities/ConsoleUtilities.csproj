@@ -5,6 +5,8 @@
     <Authors>Oscar Olsson</Authors>
     <Company>happybits AB</Company>
     <PackageId>happybits.ConsoleUtilities</PackageId>
+    <PackageTags>console utility helper happybits oscar olsson</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
