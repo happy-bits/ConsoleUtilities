@@ -1,6 +1,6 @@
-﻿# Markdown File
+﻿# Console Companion
 
-This program:
+Usage:
 
 	using ConsoleUtilities;
 
@@ -23,4 +23,4 @@ This program:
 
 Example when running the code above:
 
-	![](example.png)
+![](example.png)
