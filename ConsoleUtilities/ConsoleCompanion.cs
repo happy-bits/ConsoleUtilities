@@ -104,13 +104,21 @@ namespace ConsoleUtilities
             }
         }
 
-        public int AskForInteger(string question)
+        public int AskForInteger(string question, int? from=null, int? to=null)
         {
             while (true)
             {
                 string x = AskForString(question);
                 if (int.TryParse(x, out int answer))
+                {
+                    if (from != null && answer < from)
+                        continue;
+
+                    if (to != null && answer > to)
+                        continue;
+
                     return answer;
+                }
             }
         }
 
