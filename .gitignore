@@ -1,0 +1,14 @@
+# folders
+
+bin
+obj
+.vs
+.vscode
+
+# files
+
+*.user
+*.suo
+*.dll
+*.pdb
+
