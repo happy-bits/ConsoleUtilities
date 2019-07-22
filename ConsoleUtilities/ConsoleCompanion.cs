@@ -8,6 +8,8 @@ namespace ConsoleUtilities
     {
         public int ColumnSize { get; set; } = 20;
 
+        public ConsoleColor AnswerColor { get; set; } = ConsoleColor.Green;
+
         public void Init(int width = 60, int height = 20)
         {
             Console.WindowWidth = width;
@@ -31,11 +33,10 @@ namespace ConsoleUtilities
             while (true)
             {
                 foreach (string key in menu.Keys)
-                {
-                    WriteLine($"{key}) {menu.Get(key).Text}");
-                }
+                    WriteLine(menu.GetChoiseText(key));
+
                 Write(menu.Question);
-                string answer = Console.ReadLine();
+                string answer = ReadLineGreen();
 
                 if (addSpaceAtEnd)
                     Space();
@@ -43,7 +44,7 @@ namespace ConsoleUtilities
                 if (menu.Trim)
                     answer = answer.Trim();
 
-                if (!menu.Keys.Contains(answer))
+                if (!menu.HasKey(answer))
                     continue;
 
                 Action a = menu.Get(answer).Action;

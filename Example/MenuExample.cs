@@ -27,7 +27,7 @@ namespace Example
 
         private static void DisplayNumber()
         {
-            cc.WriteLineGreen($"Number is now {number}\n");
+            cc.WriteLineDark($"Number is now {number}\n");
         }
 
         private static void AddTen() => number += 10;
