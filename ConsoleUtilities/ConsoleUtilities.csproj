@@ -6,7 +6,7 @@
     <Company>happybits AB</Company>
     <PackageId>happybits.ConsoleUtilities</PackageId>
     <PackageTags>console utility helper happybits oscar olsson</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
 </Project>

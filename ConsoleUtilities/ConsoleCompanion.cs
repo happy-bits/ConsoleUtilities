@@ -19,6 +19,40 @@ namespace ConsoleUtilities
             Console.OutputEncoding = System.Text.Encoding.Unicode;
         }
 
+
+        public void DisplayMenu(Menu menu, bool addSpaceAtEnd=true)
+        {
+            if (menu == null || menu.IsEmpty())
+                throw new ArgumentException("Invalid", nameof(menu));
+
+            if (menu.Question == null)
+                throw new ArgumentException("Invalid", nameof(menu));
+
+            while (true)
+            {
+                foreach (string key in menu.Keys)
+                {
+                    WriteLine($"{key}) {menu.Get(key).Text}");
+                }
+                Write(menu.Question);
+                string answer = Console.ReadLine();
+
+                if (addSpaceAtEnd)
+                    Space();
+
+                if (menu.Trim)
+                    answer = answer.Trim();
+
+                if (!menu.Keys.Contains(answer))
+                    continue;
+
+                Action a = menu.Get(answer).Action;
+                a();
+                return;
+            }
+
+        }
+
         public void End()
         {
             Console.WriteLine();
