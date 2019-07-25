@@ -1,9 +1,5 @@
 ﻿using ConsoleUtilities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PageApp.Pages
 {
@@ -13,25 +9,10 @@ namespace PageApp.Pages
 
         public override List<MenuOptionPart> MenuOptionParts => new List<MenuOptionPart>
         {
-            new MenuOptionPart("Add", GotoAdd),
-            new MenuOptionPart("Multiply", GotoMultiply),
-            new MenuOptionPart("Go to main menu", GotoMain),
+            new MenuOptionPart("Add", () => new AdditionPage()),
+            new MenuOptionPart("Multiply", () => new MultiplicationPage()),
+            new MenuOptionPart("Go to main menu", () => new MainMenuPage()),
         };
-
-        private void GotoAdd()
-        {
-            new AdditionPage();
-        }
-
-        private void GotoMain()
-        {
-            new MainMenuPage();
-        }
-
-        private void GotoMultiply()
-        {
-            throw new NotImplementedException();
-        }
 
         public override void Run()
         {

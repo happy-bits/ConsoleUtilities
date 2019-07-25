@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace PageApp.Pages
 {
-    public class AdditionPage : Page
+    public class MultiplicationPage : Page
     {
-        public override string Name => "Add two numbers";
+        public override string Name => "Multiplication";
 
         public override List<MenuOptionPart> MenuOptionParts => null;
 
         public override void Run()
         {
-            while (true)
+            while(true)
             {
                 double num1 = cc.AskForNumber("Number 1: ");
                 double num2 = cc.AskForNumber("Number 2: ");
                 cc.Space();
-                cc.WriteLine($"Sum of the number is {num1 + num2}");
+                cc.WriteLine($"Product of the number is {num1 * num2}");
                 cc.Space();
                 cc.WriteLine("(A)gain of go back to (C)alculator?");
                 char answer = cc.AskForKey(new[] { 'a', 'c', 'A', 'C' });
