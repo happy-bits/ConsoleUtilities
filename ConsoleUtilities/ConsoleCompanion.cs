@@ -55,6 +55,13 @@ namespace ConsoleUtilities
 
         }
 
+        public void Line(ConsoleColor color = ConsoleColor.White, char c= '─')
+        {
+            string s = new string(c, Console.WindowWidth);
+            Console.ForegroundColor = color;
+            Console.WriteLine(s);
+        }
+
         public char AskForKey(IEnumerable<char> allowedKeys)
         {
             while (true)

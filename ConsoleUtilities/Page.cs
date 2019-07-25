@@ -35,8 +35,9 @@ namespace ConsoleUtilities
 
         private void DisplayHeader()
         {
-            cc.Space();
-            cc.WriteGreen($"{Name}");
+            cc.Line(ConsoleColor.DarkGray);
+            cc.WriteLineDark($"  {Name.ToUpper()}");
+            cc.Line(ConsoleColor.DarkGray);
             cc.Space();
         }
 
