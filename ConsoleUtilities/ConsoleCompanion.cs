@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -52,6 +53,16 @@ namespace ConsoleUtilities
                 return;
             }
 
+        }
+
+        public char AskForKey(IEnumerable<char> allowedKeys)
+        {
+            while (true)
+            {
+                char answer = Console.ReadKey(true).KeyChar;
+                if (allowedKeys.Contains(answer))
+                    return answer;
+            }
         }
 
         public void End()
