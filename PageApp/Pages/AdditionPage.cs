@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 
 namespace PageApp.Pages
 {
-    public class PandaPage : Page
+    public class AdditionPage : Page
     {
-        public override string Name => "Panda";
+        public override string Name => "Add two numbers";
 
         public override List<MenuOptionPart> MenuOptionParts => null;
 
         public override void Run()
         {
-            cc.WriteLine("Here are some pandas!");
-            cc.Space();
-            cc.WriteLine("Press 'y' to go to main menu");
-            cc.AskForKey(new char[] { 'y','Y' });
-            new MainMenuPage();
+            cc.WriteLine("Number 1: ");
         }
     }
 }

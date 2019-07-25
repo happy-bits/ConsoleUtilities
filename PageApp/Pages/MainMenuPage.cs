@@ -19,7 +19,6 @@ namespace PageApp.Pages
 
         public override void Run()
         {
-            cc.WriteLine("Welcome!");
         }
 
         private void GotoPandas()
@@ -29,8 +28,7 @@ namespace PageApp.Pages
 
         private void GotoCalc()
         {
-            Console.WriteLine("Calc!");
-            Thread.Sleep(3000);
+            new CalculatorPage();
         }
     }
 }

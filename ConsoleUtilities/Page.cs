@@ -39,7 +39,7 @@ namespace ConsoleUtilities
         private void DisplayHeader()
         {
             cc.Space();
-            cc.WriteGreen(Name);
+            cc.WriteGreen($"{Name}");
             cc.Space();
         }
 
@@ -48,7 +48,7 @@ namespace ConsoleUtilities
             if (PageHasMenu)
             {
                 foreach (var menuOption in PageMenu.MenuOptions)
-                    cc.WriteLine($" {menuOption.Key}) {menuOption.Description}");
+                    cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
 
                 cc.Space();
             }
