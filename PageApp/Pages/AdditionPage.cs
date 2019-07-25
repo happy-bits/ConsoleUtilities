@@ -15,7 +15,17 @@ namespace PageApp.Pages
 
         public override void Run()
         {
-            cc.WriteLine("Number 1: ");
+            double num1 = cc.AskForNumber("Number 1: ");
+            double num2 = cc.AskForNumber("Number 2: ");
+            cc.Space();
+            cc.WriteLine($"Sum of the number is {num1 + num2}");
+            cc.Space();
+            cc.WriteLine("(A)gain of go back to (c)alculator?");
+            char answer = cc.AskForKey(new[] { 'a', 'c','A','C' });
+            if (answer.ToString().ToUpper() == "A")
+                Run();
+            else
+                new CalculatorPage();
         }
     }
 }

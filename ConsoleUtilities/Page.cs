@@ -31,10 +31,7 @@ namespace ConsoleUtilities
             {
                 Run();
             }
-
         }
-
-
 
         private void DisplayHeader()
         {

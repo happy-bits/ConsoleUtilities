@@ -13,22 +13,20 @@ namespace PageApp.Pages
         public override string Name { get => "Main menu"; }
 
         public override List<MenuOptionPart> MenuOptionParts => new List<MenuOptionPart> {
-            new MenuOptionPart("Calculator", GotoCalc),
-            new MenuOptionPart("Look at pandas", GotoPandas)
+            new MenuOptionPart("Calculator", () => new CalculatorPage()),
+            new MenuOptionPart("Look at pandas", () => new PandaPage()),
+            new MenuOptionPart("End program", Quit)
         };
 
         public override void Run()
         {
         }
 
-        private void GotoPandas()
+        private void Quit()
         {
-            new PandaPage();
-        }
-
-        private void GotoCalc()
-        {
-            new CalculatorPage();
+            cc.Space();
+            Console.WriteLine("Thanks for using the app");
+            Thread.Sleep(3000);
         }
     }
 }
