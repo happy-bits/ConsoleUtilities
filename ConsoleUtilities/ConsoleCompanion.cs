@@ -23,6 +23,7 @@ namespace ConsoleUtilities
         }
 
 
+
         public void DisplayMenu(Menu menu, bool addSpaceAtEnd=true)
         {
             if (menu == null || menu.IsEmpty())
@@ -111,6 +112,12 @@ namespace ConsoleUtilities
         public void WriteGreen(object message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(message);
+        }
+
+        public void WriteLineCyan(object message)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(message);
         }
 
