@@ -134,10 +134,17 @@ namespace ConsoleUtilities
             Console.Write(message);
         }
 
-        public void WriteLineCyan(object message)
+
+        public void WriteCyan(object message)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(message);
+        }
+
+        public void WriteLineCyan(object message)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(message);
         }
 
         public void WriteLineGreen(object message)

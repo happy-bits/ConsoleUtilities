@@ -10,6 +10,7 @@ namespace PageApp.Pages
         public override List<MenuOptionPart> MenuOptionParts => new List<MenuOptionPart> {
             new MenuOptionPart("Calculator", () => new CalculatorPage()),
             new MenuOptionPart("Look at donkey", () => new DonkeyPage()),
+            new MenuOptionPart("Centaur", () => new CentaurPage()),
             new MenuOptionPart("End program", () => new EndPage())
         };
 

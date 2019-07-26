@@ -9,11 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 	ProjectSection(SolutionItems) = preProject
 		example.png = example.png
 		readme.md = readme.md
+		Documentation\sketch.jpg = Documentation\sketch.jpg
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{D688BFD0-42A1-4F3C-A532-197076353BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageApp", "PageApp\PageApp.csproj", "{1F9EF1BF-AB54-4459-9486-3ADC73F08D13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageApp", "PageApp\PageApp.csproj", "{1F9EF1BF-AB54-4459-9486-3ADC73F08D13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
