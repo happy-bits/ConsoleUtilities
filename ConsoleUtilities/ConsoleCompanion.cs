@@ -8,6 +8,15 @@ namespace ConsoleUtilities
 {
     public class ConsoleCompanion
     {
+
+        public int Leftmargin { get; }
+        //public string LeftSpacing => new string(' ', Leftmargin);
+
+        public ConsoleCompanion(int leftmargin=0)
+        {
+            Leftmargin = leftmargin;
+        }
+
         public int ColumnSize { get; set; } = 20;
 
         public ConsoleColor AnswerColor { get; set; } = ConsoleColor.Green;
@@ -107,30 +116,40 @@ namespace ConsoleUtilities
         public void Write(object message)
         {
             SetStandardColor();
+            AdjustCursorPosition();
             Console.Write(message);
         }
 
         public void WriteLine(object message)
         {
             SetStandardColor();
+            AdjustCursorPosition();
             Console.WriteLine(message);
+        }
+
+        private void AdjustCursorPosition()
+        {
+            Console.CursorLeft = Math.Max(Console.CursorLeft, Leftmargin);
         }
 
         public void WriteDark(object message)
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
+            AdjustCursorPosition();
             Console.Write(message);
         }
 
         public void WriteLineDark(object message)
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
+            AdjustCursorPosition();
             Console.WriteLine(message);
         }
 
         public void WriteGreen(object message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            AdjustCursorPosition();
             Console.Write(message);
         }
 
@@ -138,30 +157,35 @@ namespace ConsoleUtilities
         public void WriteCyan(object message)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
+            AdjustCursorPosition();
             Console.Write(message);
         }
 
         public void WriteLineCyan(object message)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
+            AdjustCursorPosition();
             Console.WriteLine(message);
         }
 
         public void WriteLineGreen(object message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            AdjustCursorPosition();
             Console.WriteLine(message);
         }
 
         public void WriteRed(object message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            AdjustCursorPosition();
             Console.Write(message);
         }
 
         public void WriteLineRed(object message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            AdjustCursorPosition();
             Console.WriteLine(message);
         }
 
@@ -182,8 +206,10 @@ namespace ConsoleUtilities
 
         public double AskForNumber(string question)
         {
+
             while (true)
             {
+                AdjustCursorPosition();
                 string x = AskForString(question);
                 if (double.TryParse(x, out double answer))
                     return answer;
@@ -194,6 +220,7 @@ namespace ConsoleUtilities
         {
             while (true)
             {
+                AdjustCursorPosition();
                 string x = AskForString(question);
                 if (int.TryParse(x, out int answer))
                 {
@@ -210,6 +237,8 @@ namespace ConsoleUtilities
 
         public string AskForString(string question, string defaultAnswer = null)
         {
+            AdjustCursorPosition();
+
             Write(question);
             string answer = ReadLineGreen();
 
@@ -223,6 +252,8 @@ namespace ConsoleUtilities
         {
             while (true)
             {
+                AdjustCursorPosition();
+
                 Write(question);
                 string answer = ReadLineGreen();
 
@@ -237,6 +268,8 @@ namespace ConsoleUtilities
         {
             while (true)
             {
+                AdjustCursorPosition();
+
                 Write(question);
 
                 char answer = ReadCharGreen().KeyChar;

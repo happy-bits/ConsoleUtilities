@@ -29,7 +29,7 @@ namespace PageApp.Pages
             cc.WriteLineRed(@"        |_|  |_|        |_||                 ");
             cc.WriteLineRed(@"         \_\  \_\        \_\\                ");
             cc.Space();
-            cc.WriteLine("  Press 'y' to go to main menu");
+            cc.WriteLine("Press 'y' to go to main menu");
             cc.AskForKey(new char[] { 'y', 'Y' });
             new MainMenuPage();
         }

@@ -7,13 +7,14 @@ namespace ConsoleUtilities
     {
         public abstract string Name { get; }
         public PageMenu PageMenu { get; } = new PageMenu();
+
         public virtual void Run()
         {
         }
 
         public virtual List<MenuOptionPart> MenuOptionParts { get; } 
 
-        protected ConsoleCompanion cc = new ConsoleCompanion();
+        protected ConsoleCompanion cc = new ConsoleCompanion(2);
 
         private bool PageHasMenu => MenuOptionParts != null && MenuOptionParts.Count > 0;
 
@@ -38,7 +39,7 @@ namespace ConsoleUtilities
         private void DisplayHeader()
         {
             cc.Line(ConsoleColor.DarkGray);
-            cc.WriteLineDark($"  {Name.ToUpper()}");
+            cc.WriteLineDark($"{Name.ToUpper()}");
             cc.Line(ConsoleColor.DarkGray);
             cc.Space();
         }
@@ -48,7 +49,7 @@ namespace ConsoleUtilities
             if (PageHasMenu)
             {
                 foreach (var menuOption in PageMenu.MenuOptions)
-                    cc.WriteLine($"  {menuOption.Key}) {menuOption.Description}");
+                    cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
 
                 cc.Space();
             }
