@@ -8,6 +8,16 @@ namespace ConsoleUtilities
         public abstract string Name { get; }
         public virtual PageMenu PageMenu { get; } = new PageMenu();
 
+        public static Page Next;
+
+        public static void Start()
+        {
+            while (Next != null)
+            {
+                Next.Execute();
+            }
+        }
+
         public virtual void Run()
         {
         }

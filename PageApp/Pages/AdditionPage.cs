@@ -14,7 +14,7 @@ namespace PageApp.Pages
                 double num2 = cc.AskForNumber("Number 2: ");
                 cc.Space();
                 cc.Write($"Sum of the number is ");
-                cc.WriteCyan(num1+num2+"\n");
+                cc.WriteCyan(num1 + num2 + "\n");
                 cc.Space();
                 cc.WriteLine("(A)gain of go back to (C)alculator?");
                 char answer = cc.AskForKey(new[] { 'a', 'c', 'A', 'C' });
@@ -23,7 +23,7 @@ namespace PageApp.Pages
 
                 cc.Space();
             }
-            new CalculatorPage().Execute();
+            Next = new CalculatorPage();
         }
     }
 }

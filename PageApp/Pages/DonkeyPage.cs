@@ -31,7 +31,7 @@ namespace PageApp.Pages
             cc.Space();
             cc.WriteLine("Press 'y' to go to main menu");
             cc.AskForKey(new char[] { 'y', 'Y' });
-            new MainMenuPage().Execute();
+            Next = new MainMenuPage();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PageApp.Pages
 
                 cc.Space();
             }
-            new CalculatorPage().Execute();
+            Next = new CalculatorPage();
         }
     }
 }
