@@ -10,7 +10,8 @@ namespace PageApp
         static void Main()
         {
             cc.FullScreen();
-            new MainMenuPage();
+
+            new MainMenuPage().Execute(); ;
         }
     }
 }

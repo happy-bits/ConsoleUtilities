@@ -16,7 +16,7 @@ namespace ConsoleUtilities
 
         private bool PageHasMenu => PageMenu.Any();
 
-        public Page()
+        public void Execute()
         {
             Console.Clear();
             DisplayHeader();
@@ -32,7 +32,6 @@ namespace ConsoleUtilities
                 Run();
             }
         }
-
         private void DisplayHeader()
         {
             cc.Line(ConsoleColor.DarkGray);

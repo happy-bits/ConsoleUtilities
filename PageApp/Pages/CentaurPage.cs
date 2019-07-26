@@ -34,7 +34,7 @@ namespace PageApp.Pages
             cc.WriteLineCyan(@"         / (        ^-/, |              ");
 
             Console.ReadKey();
-            new MainMenuPage();
+            new MainMenuPage().Execute();
         }
     }
 }

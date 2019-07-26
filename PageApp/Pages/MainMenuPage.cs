@@ -7,10 +7,10 @@ namespace PageApp.Pages
         public override string Name { get => "Main menu"; }
 
         public override  PageMenu PageMenu => new PageMenu {
-            { "Calculator", () => new CalculatorPage() },
-            { "Look at donkey", () => new DonkeyPage() },
-            { "Go to centaur", () => new CentaurPage() },
-            { "End program", () => new EndPage() },
+            { "Calculator", () => new CalculatorPage().Execute() },
+            { "Look at donkey", () => new DonkeyPage().Execute() },
+            { "Go to centaur", () => new CentaurPage().Execute() },
+            { "End program", () => new EndPage().Execute() },
         };
 
     }
