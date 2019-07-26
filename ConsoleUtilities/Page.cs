@@ -6,44 +6,41 @@ namespace ConsoleUtilities
     abstract public class Page
     {
         public abstract string Name { get; }
-        public virtual PageMenu PageMenu { get; } = new PageMenu();
+        protected virtual PageMenu PageMenu { get; } = new PageMenu();
 
-        public static Page Next;
+        protected static Page NextPage;
 
-        public static void Start()
+        public static void Start(Page startPage)
         {
-            while (Next != null)
+            NextPage = startPage;
+            
+            while (NextPage != null)
             {
-                Next.Execute();
+                NextPage.Execute();
             }
         }
 
-        public virtual void Run()
-        {
-        }
+        public virtual void Run(){}
 
         protected ConsoleCompanion cc = new ConsoleCompanion(2);
 
         private bool PageHasMenu => PageMenu.Any();
 
-        public void Execute()
+        protected void Execute()
         {
-            Console.Clear();
             DisplayHeader();
 
             if (PageHasMenu)
-            {
                 DisplayMenu();
-                Run();
-                ExecuteMenu();
-            }
-            else
-            {
-                Run();
-            }
+
+            Run();
+
+            if (PageHasMenu)
+                PageMenu.Run();
         }
         private void DisplayHeader()
         {
+            Console.Clear(); // todo: clear without flicker?
             cc.Line(ConsoleColor.DarkGray);
             cc.WriteLineDark($"{Name.ToUpper()}");
             cc.Line(ConsoleColor.DarkGray);
@@ -61,10 +58,5 @@ namespace ConsoleUtilities
             }
         }
 
-        private void ExecuteMenu()
-        {
-            if (PageHasMenu)
-                PageMenu.Run();
-        }
     }
 }
