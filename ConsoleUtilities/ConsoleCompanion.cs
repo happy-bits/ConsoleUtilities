@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
 namespace ConsoleUtilities
@@ -22,9 +23,27 @@ namespace ConsoleUtilities
             Console.OutputEncoding = System.Text.Encoding.Unicode;
         }
 
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+        private static extern IntPtr GetConsoleWindow();
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
-        public void DisplayMenu(Menu menu, bool addSpaceAtEnd=true)
+        public void FullScreen()
+        {
+            IntPtr thisConsole = GetConsoleWindow();
+            int MAXIMIZE = 3;
+            /*
+            int HIDE = 0;
+            int MINIMIZE = 6;
+            int RESTORE = 9;
+            */
+
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            ShowWindow(thisConsole, MAXIMIZE);
+        }
+
+        public void DisplayMenu(Menu menu, bool addSpaceAtEnd = true)
         {
             if (menu == null || menu.IsEmpty())
                 throw new ArgumentException("Invalid", nameof(menu));
@@ -56,7 +75,7 @@ namespace ConsoleUtilities
 
         }
 
-        public void Line(ConsoleColor color = ConsoleColor.White, char c= '─')
+        public void Line(ConsoleColor color = ConsoleColor.White, char c = '─')
         {
             string s = new string(c, Console.WindowWidth);
             Console.ForegroundColor = color;
@@ -164,7 +183,7 @@ namespace ConsoleUtilities
             }
         }
 
-        public int AskForInteger(string question, int? from=null, int? to=null)
+        public int AskForInteger(string question, int? from = null, int? to = null)
         {
             while (true)
             {

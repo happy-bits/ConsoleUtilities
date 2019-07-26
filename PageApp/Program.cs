@@ -1,12 +1,18 @@
-﻿using PageApp.Pages;
+﻿using ConsoleUtilities;
+using PageApp.Pages;
+using System;
+using System.Runtime.InteropServices;
 
 namespace PageApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static ConsoleCompanion cc = new ConsoleCompanion();
+
+        static void Main()
         {
-            var x = new MainMenuPage();
+            cc.FullScreen();
+            new MainMenuPage();
         }
     }
 }
