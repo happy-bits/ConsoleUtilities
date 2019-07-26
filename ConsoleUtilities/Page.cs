@@ -7,7 +7,9 @@ namespace ConsoleUtilities
     {
         public abstract string Name { get; }
         public PageMenu PageMenu { get; } = new PageMenu();
-        public abstract void Run();
+        public virtual void Run()
+        {
+        }
 
         public abstract List<MenuOptionPart> MenuOptionParts { get; } 
 
@@ -46,7 +48,7 @@ namespace ConsoleUtilities
             if (PageHasMenu)
             {
                 foreach (var menuOption in PageMenu.MenuOptions)
-                    cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
+                    cc.WriteLine($"  {menuOption.Key}) {menuOption.Description}");
 
                 cc.Space();
             }

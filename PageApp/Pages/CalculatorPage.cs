@@ -13,9 +13,5 @@ namespace PageApp.Pages
             new MenuOptionPart("Multiply", () => new MultiplicationPage()),
             new MenuOptionPart("Go to main menu", () => new MainMenuPage()),
         };
-
-        public override void Run()
-        {
-        }
     }
 }

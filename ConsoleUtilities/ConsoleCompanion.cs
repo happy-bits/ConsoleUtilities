@@ -24,10 +24,10 @@ namespace ConsoleUtilities
         }
 
         [DllImport("kernel32.dll", ExactSpelling = true)]
-        private static extern IntPtr GetConsoleWindow();
+        private static extern IntPtr GetConsoleWindow();  // extern hänger ihop med DllImport
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);  
 
         public void FullScreen()
         {

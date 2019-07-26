@@ -12,7 +12,7 @@ namespace PageApp.Pages
 
         public override void Run()
         {
-            cc.WriteLine("Thanks for using the app");
+            cc.WriteLine("  Thanks for using the app");
             cc.Space();
             Thread.Sleep(2000);
         }

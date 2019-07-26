@@ -13,9 +13,5 @@ namespace PageApp.Pages
             new MenuOptionPart("End program", () => new EndPage())
         };
 
-        public override void Run()
-        {
-        }
-
     }
 }
