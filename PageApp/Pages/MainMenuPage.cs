@@ -1,5 +1,4 @@
 ﻿using ConsoleUtilities;
-using System.Collections.Generic;
 
 namespace PageApp.Pages
 {
@@ -7,11 +6,11 @@ namespace PageApp.Pages
     {
         public override string Name { get => "Main menu"; }
 
-        public override List<MenuOptionPart> MenuOptionParts => new List<MenuOptionPart> {
-            new MenuOptionPart("Calculator", () => new CalculatorPage()),
-            new MenuOptionPart("Look at donkey", () => new DonkeyPage()),
-            new MenuOptionPart("Centaur", () => new CentaurPage()),
-            new MenuOptionPart("End program", () => new EndPage())
+        public override  PageMenu PageMenu => new PageMenu {
+            { "Calculator", () => new CalculatorPage() },
+            { "Look at donkey", () => new DonkeyPage() },
+            { "Go to centaur", () => new CentaurPage() },
+            { "End program", () => new EndPage() },
         };
 
     }

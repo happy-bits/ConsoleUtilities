@@ -1,25 +1,28 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ConsoleUtilities
 {
-    public class PageMenu
+    public class PageMenu:IEnumerable<MenuOption>
     {
         private ConsoleCompanion cc = new ConsoleCompanion();
 
-        public List<MenuOption> MenuOptions { get; set; } = new List<MenuOption>();
+        //public List<MenuOption> MenuOptions { get; set; } = new List<MenuOption>();
 
         private List<char> allMenuKeys = new List<char>();
 
-        internal void Fill(List<MenuOptionPart> menuOptionParts)
+        private List<MenuOption> menuOptions = new List<MenuOption>();
+        public IEnumerator<MenuOption> GetEnumerator() => menuOptions.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => menuOptions.GetEnumerator();
+
+        public void Add(string description, Action action)
         {
-            foreach (var mop in menuOptionParts)
-            {
-                char key = (char)('a' + MenuOptions.Count);
-                allMenuKeys.Add(key);
-                MenuOptions.Add(new MenuOption(key, mop.Description, mop.Action));
-            }
+            char key = (char)('a' + menuOptions.Count);
+            allMenuKeys.Add(key);
+
+            menuOptions.Add(new MenuOption(key, description, action));
         }
 
         public void Run()
@@ -30,7 +33,9 @@ namespace ConsoleUtilities
 
         private void ExecuteAction(char answer)
         {
-            MenuOptions.Single(x => x.Key == answer).Action();
+            menuOptions.Single(x => x.Key == answer).Action();
         }
+
+
     }
 }

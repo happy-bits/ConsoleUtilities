@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleUtilities
 {
     abstract public class Page
     {
         public abstract string Name { get; }
-        public PageMenu PageMenu { get; } = new PageMenu();
+        public virtual PageMenu PageMenu { get; } = new PageMenu();
 
         public virtual void Run()
         {
         }
 
-        public virtual List<MenuOptionPart> MenuOptionParts { get; } 
-
         protected ConsoleCompanion cc = new ConsoleCompanion(2);
 
-        private bool PageHasMenu => MenuOptionParts != null && MenuOptionParts.Count > 0;
+        private bool PageHasMenu => PageMenu.Any();
 
         public Page()
         {
@@ -25,7 +23,6 @@ namespace ConsoleUtilities
 
             if (PageHasMenu)
             {
-                PageMenu.Fill(MenuOptionParts);
                 DisplayMenu();
                 Run();
                 ExecuteMenu();
@@ -48,7 +45,7 @@ namespace ConsoleUtilities
         {
             if (PageHasMenu)
             {
-                foreach (var menuOption in PageMenu.MenuOptions)
+                foreach (var menuOption in PageMenu)
                     cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
 
                 cc.Space();
