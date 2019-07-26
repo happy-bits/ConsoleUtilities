@@ -9,8 +9,6 @@ namespace ConsoleUtilities
     {
         private ConsoleCompanion cc = new ConsoleCompanion();
 
-        //public List<MenuOption> MenuOptions { get; set; } = new List<MenuOption>();
-
         private List<char> allMenuKeys = new List<char>();
 
         private List<MenuOption> menuOptions = new List<MenuOption>();
