@@ -8,8 +8,6 @@ namespace PageApp.Pages
     {
         public override string Name => "Vain Centaur";
 
-        public override List<MenuOptionPart> MenuOptionParts => null;
-
         public override void Run()
         {
 

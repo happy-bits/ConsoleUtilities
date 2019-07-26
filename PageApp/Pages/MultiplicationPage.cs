@@ -7,8 +7,6 @@ namespace PageApp.Pages
     {
         public override string Name => "Multiplication";
 
-        public override List<MenuOptionPart> MenuOptionParts => null;
-
         public override void Run()
         {
             while(true)

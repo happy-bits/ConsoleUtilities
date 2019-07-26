@@ -7,8 +7,6 @@ namespace PageApp.Pages
     {
         public override string Name => "Add two numbers";
 
-        public override List<MenuOptionPart> MenuOptionParts => null;
-
         public override void Run()
         {
             while (true)

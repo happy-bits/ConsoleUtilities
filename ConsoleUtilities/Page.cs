@@ -11,7 +11,7 @@ namespace ConsoleUtilities
         {
         }
 
-        public abstract List<MenuOptionPart> MenuOptionParts { get; } 
+        public virtual List<MenuOptionPart> MenuOptionParts { get; } 
 
         protected ConsoleCompanion cc = new ConsoleCompanion();
 

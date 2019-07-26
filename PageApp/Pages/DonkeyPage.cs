@@ -7,8 +7,6 @@ namespace PageApp.Pages
     {
         public override string Name => "Donkey";
 
-        public override List<MenuOptionPart> MenuOptionParts => null;
-
         public override void Run()
         {
             cc.WriteLineRed(@"                            /\          /\   ");
