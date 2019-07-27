@@ -11,8 +11,6 @@ namespace ConsoleUtilities.PageMenus
         public IEnumerator<MenuOption> GetEnumerator() => _menuOptions.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => _menuOptions.GetEnumerator();
 
-        // (This method must be namned "Add" to make object initialization work)
-
         public void Add(string description, Action action)
         {
             // todo: may change naming of options

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// todo: Is it possible to remove some classes? Many classes are similair.
+
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ConsoleUtilities.PageMenus
