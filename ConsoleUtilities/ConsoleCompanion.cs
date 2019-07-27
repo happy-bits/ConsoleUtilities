@@ -8,10 +8,6 @@ namespace ConsoleUtilities
 {
     public class ConsoleCompanion
     {
-
-        public int Leftmargin { get; }
-        //public string LeftSpacing => new string(' ', Leftmargin);
-
         public ConsoleCompanion(int leftmargin=0)
         {
             Leftmargin = leftmargin;
@@ -21,6 +17,7 @@ namespace ConsoleUtilities
 
         public ConsoleColor AnswerColor { get; set; } = ConsoleColor.Green;
 
+        // todo: gör om denna metod till nåt annat
         public void Init(int width = 60, int height = 20)
         {
             Console.WindowWidth = width;
@@ -125,11 +122,6 @@ namespace ConsoleUtilities
             SetStandardColor();
             AdjustCursorPosition();
             Console.WriteLine(message);
-        }
-
-        private void AdjustCursorPosition()
-        {
-            Console.CursorLeft = Math.Max(Console.CursorLeft, Leftmargin);
         }
 
         public void WriteDark(object message)
@@ -280,6 +272,13 @@ namespace ConsoleUtilities
                     return answer;
             }
         }
+
+        private void AdjustCursorPosition()
+        {
+            Console.CursorLeft = Math.Max(Console.CursorLeft, Leftmargin);
+        }
+
+        private int Leftmargin { get; }
 
         private void SetStandardColor()
         {

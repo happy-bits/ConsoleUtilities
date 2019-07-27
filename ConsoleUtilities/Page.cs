@@ -6,25 +6,22 @@ namespace ConsoleUtilities
     abstract public class Page
     {
         public abstract string Name { get; }
-        protected virtual PageMenu PageMenu { get; } = new PageMenu();
-
-        protected static Page NextPage;
 
         public static void Start(Page startPage)
         {
             NextPage = startPage;
-            
+
             while (NextPage != null)
-            {
                 NextPage.Execute();
-            }
         }
 
-        public virtual void Run(){}
+        public virtual void Run() { }
+
+        protected virtual PageMenu PageMenu { get; } = new PageMenu();
+
+        protected static Page NextPage;
 
         protected ConsoleCompanion cc = new ConsoleCompanion(2);
-
-        private bool PageHasMenu => PageMenu.Any();
 
         protected void Execute()
         {
@@ -38,6 +35,9 @@ namespace ConsoleUtilities
             if (PageHasMenu)
                 PageMenu.Run();
         }
+
+        private bool PageHasMenu => PageMenu.Any();
+
         private void DisplayHeader()
         {
             Console.Clear(); // todo: clear without flicker?
@@ -49,13 +49,10 @@ namespace ConsoleUtilities
 
         private void DisplayMenu()
         {
-            if (PageHasMenu)
-            {
-                foreach (var menuOption in PageMenu)
-                    cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
+            foreach (var menuOption in PageMenu)
+                cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
 
-                cc.Space();
-            }
+            cc.Space();
         }
 
     }
