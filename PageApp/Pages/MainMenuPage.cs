@@ -2,16 +2,15 @@
 
 namespace PageApp.Pages
 {
-    public class MainMenuPage : Page
+    public class MainMenuPage : NavigationPage
     {
         public override string Name { get => "Main menu"; }
 
-        protected override  PageMenu PageMenu => new PageMenu {
-            { "Calculator", () => NextPage = new CalculatorPage() },
-            { "Look at donkey", () => NextPage = new DonkeyPage() },
-            { "Go to centaur", () => NextPage = new CentaurPage() },
-            { "End program", () => NextPage = new EndPage() },
+        protected override PageMenuNav PageMenuNav => new PageMenuNav {
+            { "Calculator", new CalculatorPage() },
+            { "Look at donkey",  new DonkeyPage() },
+            { "Go to centaur",  new CentaurPage() },
+            { "End program", new EndPage() },
         };
-
     }
 }

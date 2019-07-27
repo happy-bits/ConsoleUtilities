@@ -15,9 +15,11 @@ namespace ConsoleUtilities.PageMenus
                 NextPage.Execute();
         }
 
+        public virtual void BeginExecute() { }
+
         public virtual void Run() { }
 
-        protected virtual PageMenu PageMenu { get; } = new PageMenu();
+        protected virtual PageMenu PageMenu { get; set; } = new PageMenu();
 
         protected static Page NextPage;
 
@@ -25,6 +27,8 @@ namespace ConsoleUtilities.PageMenus
 
         protected void Execute()
         {
+            BeginExecute();
+
             DisplayHeader();
 
             if (PageHasMenu)
