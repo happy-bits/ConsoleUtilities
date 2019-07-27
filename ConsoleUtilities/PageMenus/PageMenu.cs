@@ -8,16 +8,17 @@ namespace ConsoleUtilities.PageMenus
     public class PageMenu : IEnumerable<MenuOption>
     {
 
-        public IEnumerator<MenuOption> GetEnumerator() => menuOptions.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => menuOptions.GetEnumerator();
+        public IEnumerator<MenuOption> GetEnumerator() => _menuOptions.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => _menuOptions.GetEnumerator();
 
         // (This method must be namned "Add" to make object initialization work)
 
         public void Add(string description, Action action)
         {
-            char key = (char)('a' + menuOptions.Count);
+            // todo: may change naming of options
+            char key = (char)('a' + _menuOptions.Count);
             _allMenuKeys.Add(key);
-            menuOptions.Add(new MenuOption(key, description, action));
+            _menuOptions.Add(new MenuOption(key, description, action));
         }
 
         public void Run()
@@ -26,11 +27,11 @@ namespace ConsoleUtilities.PageMenus
             ExecuteAction(answer);
         }
 
-        private List<MenuOption> menuOptions = new List<MenuOption>();
+        private List<MenuOption> _menuOptions = new List<MenuOption>();
 
         private void ExecuteAction(char answer)
         {
-            menuOptions.Single(x => x.Key == answer).Action();
+            _menuOptions.Single(x => x.Key == answer).Action();
         }
 
         private readonly ConsoleCompanion _cc = new ConsoleCompanion();

@@ -40,6 +40,7 @@ namespace ConsoleUtilities.PageMenus
 
         private void DisplayHeader()
         {
+            // todo: able to change header
             Console.Clear(); // todo: clear without flicker?
             cc.Line(ConsoleColor.DarkGray);
             cc.WriteLineDark($"{Name.ToUpper()}");
@@ -49,6 +50,7 @@ namespace ConsoleUtilities.PageMenus
 
         private void DisplayMenu()
         {
+            // todo: able to change how menu is displayed
             foreach (var menuOption in PageMenu)
                 cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
 
