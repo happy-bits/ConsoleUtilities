@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace ConsoleUtilities.PageMenus
 {
@@ -15,49 +14,25 @@ namespace ConsoleUtilities.PageMenus
                 NextPage.Execute();
         }
 
-        public virtual void BeginExecute() { }
-
         public virtual void Run() { }
-
-        protected virtual PageMenu PageMenu { get; set; } = new PageMenu();
 
         protected static Page NextPage;
 
         protected ConsoleCompanion cc = new ConsoleCompanion(2);
 
-        protected void Execute()
+        protected virtual void Execute()
         {
-            BeginExecute();
-
             DisplayHeader();
-
-            if (PageHasMenu)
-                DisplayMenu();
-
             Run();
-
-            if (PageHasMenu)
-                PageMenu.Run();
         }
 
-        private bool PageHasMenu => PageMenu.Any();
-
-        private void DisplayHeader()
+        protected void DisplayHeader()
         {
             // todo: able to change header
             Console.Clear(); // todo: clear without flicker?
             cc.Line(ConsoleColor.DarkGray);
             cc.WriteLineDark($"{Name.ToUpper()}");
             cc.Line(ConsoleColor.DarkGray);
-            cc.Space();
-        }
-
-        private void DisplayMenu()
-        {
-            // todo: able to change how menu is displayed
-            foreach (var menuOption in PageMenu)
-                cc.WriteLine($"{menuOption.Key}) {menuOption.Description}");
-
             cc.Space();
         }
 
