@@ -1,5 +1,4 @@
-﻿using ConsoleUtilities;
-using System;
+﻿using ConsoleUtilities.PageMenus;
 
 namespace PageApp.Pages
 {
@@ -33,7 +32,8 @@ namespace PageApp.Pages
             cc.WriteLineCyan(@"          _|/        / / (              ");
             cc.WriteLineCyan(@"         / (        ^-/, |              ");
 
-            Console.ReadKey();
+            cc.WriteLine("Press 'y' to go to main menu");
+            cc.AskForKey(new char[] { 'y', 'Y' });
             NextPage = new MainMenuPage();
         }
     }

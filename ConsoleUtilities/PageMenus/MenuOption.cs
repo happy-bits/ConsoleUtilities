@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleUtilities
+namespace ConsoleUtilities.PageMenus
 {
     public class MenuOption
     {

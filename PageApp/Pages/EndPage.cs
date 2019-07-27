@@ -1,4 +1,4 @@
-﻿using ConsoleUtilities;
+﻿using ConsoleUtilities.PageMenus;
 using System.Threading;
 
 namespace PageApp.Pages

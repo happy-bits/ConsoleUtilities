@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace ConsoleUtilities
+namespace ConsoleUtilities.PageMenus
 {
-    abstract public class Page
+    public abstract class Page
     {
         public abstract string Name { get; }
 

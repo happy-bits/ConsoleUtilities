@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConsoleUtilities
+namespace ConsoleUtilities.Menus
 {
     public class Menu
     {
@@ -21,30 +21,13 @@ namespace ConsoleUtilities
                 _items.Add(key, new TextAction(key, text, action));
         }
 
-        public class TextAction
-        {
-            public TextAction(string keyText, string text, Action action)
-            {
-                KeyText = keyText;
-                Text = text;
-                Action = action;
-            }
-
-            public string KeyText { get; }
-            public string Text { get; }
-            public Action Action { get; }
-        }
-
         public string[] Keys => _items.Keys.ToArray();
 
         public string Question { get; }
         public bool IgnoreCase { get; }
         public bool Trim { get; }
 
-        public string GetChoiseText(string key)
-        {
-            return $"{Get(key).KeyText}) {Get(key).Text}";
-        }
+        public string GetChoiseText(string key) => $"{Get(key).KeyText}) {Get(key).Text}";
 
         public TextAction Get(string key) => IgnoreCase ? _items[key.ToUpper()] : _items[key];
 

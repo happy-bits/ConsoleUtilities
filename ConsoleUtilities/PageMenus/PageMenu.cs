@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConsoleUtilities
+namespace ConsoleUtilities.PageMenus
 {
-    public class PageMenu:IEnumerable<MenuOption>
+    public class PageMenu : IEnumerable<MenuOption>
     {
 
         public IEnumerator<MenuOption> GetEnumerator() => menuOptions.GetEnumerator();
