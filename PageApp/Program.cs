@@ -1,6 +1,8 @@
 ﻿using ConsoleUtilities;
-using ConsoleUtilities.PageMenus;
-using PageApp.Pages;
+//using ConsoleUtilities.PageMenus;
+//using PageApp.Pages;
+using ConsoleUtilities.PageMenusInterface;
+using PageApp.PagesInterface;
 
 namespace PageApp
 {
@@ -11,7 +13,10 @@ namespace PageApp
         static void Main()
         {
             cc.FullScreen();
-            Page.Start(new MainMenuPage());
+            //Page.Start(new MainMenuPage());
+
+            var x = new PageController();
+            x.Start(new MainMenuPage());
         }
     }
 }
