@@ -6,12 +6,11 @@ namespace ConsoleUtilities.PageMenusInterface
     {
         private ConsoleCompanion cc = new ConsoleCompanion(2);
 
-        public IPage[] Pages { get; private set; }
-
         public void Start(IPage page)
         {
             while (true)
             {
+                // todo: make cleaner code?
                 INavigationPage npage = page as INavigationPage;
                 IHasNextPage hpage = page as IHasNextPage;
 

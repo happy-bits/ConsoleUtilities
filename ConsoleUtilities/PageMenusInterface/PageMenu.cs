@@ -8,11 +8,9 @@ namespace ConsoleUtilities.PageMenusInterface
     {
         public void Add(string description, IPage page)
         {
+            // todo: can configure which chars to use in the menu 
             char key = (char)('a' + MenuOptions.Count);
-            _allMenuKeys.Add(key);
-
             MenuOptions.Add(new MenuOption(key, description, page));
-            
         }
 
         public IEnumerator<MenuOption> GetEnumerator() => MenuOptions.GetEnumerator();
@@ -20,11 +18,12 @@ namespace ConsoleUtilities.PageMenusInterface
 
         public List<MenuOption> MenuOptions { get; } = new List<MenuOption>();
 
-        private List<char> _allMenuKeys = new List<char>();
+        private IEnumerable<char> AllMenuKeys => MenuOptions.Select(x => x.Key);
 
         public IPage GetNextNavigationPage()
         {
-            char answer = new ConsoleCompanion().AskForKey(_allMenuKeys);
+            // todo: can configure which chars to use in the menu 
+            char answer = new ConsoleCompanion().AskForKey(AllMenuKeys);
             int index = answer - 'a';
 
             return MenuOptions.Select(x => x.Page).ToArray()[index];
